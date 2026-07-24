@@ -122,7 +122,7 @@ struct DisclaimerView: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.03), radius: 3, y: 1)
         )
     }

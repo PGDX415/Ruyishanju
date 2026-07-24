@@ -121,7 +121,7 @@ struct ContactView: View {
                                 .stroke(AppTheme.divider, lineWidth: 1)
                         )
                         .scrollContentBackground(.hidden)
-                        .background(Color.white)
+                        .background(AppTheme.cardBackground)
                 }
 
                 // 隐私政策
@@ -163,7 +163,7 @@ struct ContactView: View {
             .padding(20)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -200,7 +200,7 @@ struct ContactView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -251,7 +251,7 @@ struct ContactMethodCard: View {
         .padding(.vertical, 16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }
@@ -277,7 +277,7 @@ struct FormField: View {
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(AppTheme.divider, lineWidth: 1)
                 )
-                .background(Color.white)
+                .background(AppTheme.cardBackground)
         }
     }
 }

@@ -102,7 +102,7 @@ struct BrochureView: View {
             .padding(16)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -141,7 +141,7 @@ struct BrochureView: View {
             .padding(16)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }

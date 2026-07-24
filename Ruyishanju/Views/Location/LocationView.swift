@@ -126,7 +126,7 @@ struct LocationView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.03), radius: 3, y: 1)
             )
         }
@@ -255,7 +255,7 @@ struct AmenityRow: View {
         .padding(14)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.03), radius: 3, y: 1)
         )
     }

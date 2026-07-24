@@ -129,7 +129,7 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.white)
+                            .fill(AppTheme.cardBackground)
                             .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
                     )
                 }
@@ -196,7 +196,7 @@ struct HomeView: View {
             }
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
             )
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(color: .black.opacity(0.06), radius: 8, y: 3)
@@ -260,7 +260,7 @@ struct QuickActionCard: View {
         .frame(width: 120, height: 140)
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
         .contentShape(RoundedRectangle(cornerRadius: 14))

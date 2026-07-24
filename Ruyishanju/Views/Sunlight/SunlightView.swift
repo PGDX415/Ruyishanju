@@ -197,7 +197,7 @@ struct SunlightView: View {
                 // 罗盘背景
                 Circle()
                     .stroke(AppTheme.divider, lineWidth: 1)
-                    .background(Circle().fill(Color.white))
+                    .background(Circle().fill(AppTheme.cardBackground))
 
                 // 方向标识
                 compassLabel("N", at: 0, yOffset: -95)
@@ -242,7 +242,7 @@ struct SunlightView: View {
             .padding(.vertical, 10)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -330,7 +330,7 @@ struct SunlightView: View {
             .padding(12)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -481,7 +481,7 @@ struct SunlightView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }
@@ -546,7 +546,7 @@ struct SunlightView: View {
             }
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
             .clipShape(RoundedRectangle(cornerRadius: 12))

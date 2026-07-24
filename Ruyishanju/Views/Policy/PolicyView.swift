@@ -55,7 +55,7 @@ struct PolicyView: View {
             .padding(.vertical, 4)
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.03), radius: 3, y: 1)
             )
         }
@@ -181,7 +181,7 @@ struct PolicyView: View {
                 .padding(.leading, 14)
         }
         .padding(16)
-        .background(Color.white)
+        .background(AppTheme.cardBackground)
         .overlay(
             Rectangle()
                 .fill(AppTheme.divider)

@@ -84,7 +84,7 @@ struct UnitTypeDetailView: View {
             }
         }
         .buttonStyle(.plain)
-        .background(Color.white)
+        .background(AppTheme.cardBackground)
     }
 
     /// 根据 unitType.floorPlanImage 字段加载实际户型图，空值时 fallback 到 hash 映射
@@ -120,7 +120,7 @@ struct UnitTypeDetailView: View {
             .padding(20)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
 
@@ -182,7 +182,7 @@ struct UnitTypeDetailView: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }
@@ -202,7 +202,7 @@ struct UnitTypeDetailView: View {
         .padding(.vertical, 8)
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }
@@ -232,7 +232,7 @@ struct UnitTypeDetailView: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }

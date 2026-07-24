@@ -193,7 +193,7 @@ struct ComparisonView: View {
             }
             .padding(.vertical, 12)
         }
-        .background(Color.white)
+        .background(AppTheme.cardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
     }
@@ -288,7 +288,7 @@ struct ComparisonView: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }

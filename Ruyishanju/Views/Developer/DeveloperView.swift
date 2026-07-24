@@ -62,7 +62,7 @@ struct DeveloperView: View {
             .padding(.vertical, 24)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
 
@@ -91,7 +91,7 @@ struct DeveloperView: View {
             .padding(20)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -149,7 +149,7 @@ struct DeveloperView: View {
             .padding(.vertical, 4)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -192,7 +192,7 @@ struct DeveloperView: View {
             .padding(20)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -245,7 +245,7 @@ struct DeveloperView: View {
             .padding(20)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -305,7 +305,7 @@ struct StrengthCard: View {
         .padding(.vertical, 16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }

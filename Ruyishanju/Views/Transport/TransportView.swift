@@ -39,7 +39,7 @@ struct TransportView: View {
                 .padding(16)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.white)
+                        .fill(AppTheme.cardBackground)
                         .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
                 )
         }
@@ -146,7 +146,7 @@ struct TransportView: View {
                 .padding(16)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.white)
+                        .fill(AppTheme.cardBackground)
                         .shadow(color: .black.opacity(0.03), radius: 3, y: 1)
                 )
         }
@@ -169,7 +169,7 @@ struct TransportView: View {
             }
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.white)
+                    .fill(AppTheme.cardBackground)
                     .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
             )
         }
@@ -225,7 +225,7 @@ struct TransportView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
         )
     }
@@ -255,7 +255,7 @@ struct TransportView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.03), radius: 3, y: 1)
         )
     }

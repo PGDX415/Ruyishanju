@@ -99,7 +99,7 @@ struct UnitTypeListView: View {
             Divider()
                 .background(AppTheme.divider)
         }
-        .background(Color.white)
+        .background(AppTheme.cardBackground)
     }
 
     // MARK: - 户型列表
@@ -268,7 +268,7 @@ struct UnitTypeCard: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
+                .fill(AppTheme.cardBackground)
                 .shadow(color: .black.opacity(0.05), radius: 6, y: 3)
         )
         .contentShape(RoundedRectangle(cornerRadius: 14))
