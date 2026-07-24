@@ -20,7 +20,7 @@ struct MoreView: View {
                     MoreRow(
                         icon: "mappin.and.ellipse",
                         title: "位置与配套",
-                        subtitle: "周边学校、商圈、交通",
+                        subtitle: "海南五指山 · 周边配套",
                         color: Color(red: 0.31, green: 0.52, blue: 0.73)
                     )
                 }
@@ -86,7 +86,7 @@ struct MoreView: View {
                         MoreRow(
                             icon: "info.circle.fill",
                             title: "关于绿城如意山居",
-                            subtitle: "版本 1.0 · 绿城中国",
+                            subtitle: "版本 1.0 · 乾景源 × 绿城管理",
                             color: AppTheme.textSecondary
                         )
                         Spacer()

@@ -137,10 +137,10 @@ struct KioskView: View {
             Spacer().frame(height: 40)
 
             // 核心信息
-            infoRow(icon: "ruler", label: "容积率", value: "1.2")
-            infoRow(icon: "tree.fill", label: "绿化率", value: "42%")
-            infoRow(icon: "house.fill", label: "总户数", value: "386户")
-            infoRow(icon: "figure.walk", label: "在售户型", value: "98-228㎡")
+            infoRow(icon: "ruler", label: "容积率", value: "住宅1.0")
+            infoRow(icon: "tree.fill", label: "绿地率", value: "40%")
+            infoRow(icon: "leaf.fill", label: "森林覆盖率", value: "86.44%")
+            infoRow(icon: "figure.walk", label: "在售户型", value: "100-120㎡")
 
             Spacer().frame(height: 40)
 
@@ -149,7 +149,7 @@ struct KioskView: View {
                 HStack(spacing: 6) {
                     Image(systemName: "mappin.and.ellipse")
                         .font(.system(size: 11))
-                    Text("南山风景区 · 如意路88号")
+                    Text("海南省五指山市 · 如意山居")
                         .font(.system(size: 13))
                 }
                 .foregroundColor(.white.opacity(0.45))
@@ -157,7 +157,7 @@ struct KioskView: View {
                 HStack(spacing: 6) {
                     Image(systemName: "phone.fill")
                         .font(.system(size: 11))
-                    Text("400-888-8888")
+                    Text("400-123-4567")
                         .font(.system(size: 15, weight: .medium, design: .rounded))
                 }
                 .foregroundColor(.white.opacity(0.6))
@@ -248,10 +248,10 @@ struct KioskView: View {
             }
         case 1:
             VStack(spacing: 8) {
-                Text("低密山居")
+                Text("天赋山境")
                     .font(.brandTitle)
                     .foregroundColor(.white)
-                Text("容积率仅 1.2 · 背山面水")
+                Text("北纬18° · 森林覆盖率86.44%")
                     .font(.brandSlogan)
                     .foregroundColor(.white.opacity(0.7))
             }
@@ -260,7 +260,7 @@ struct KioskView: View {
                 Text("匠心品质")
                     .font(.brandTitle)
                     .foregroundColor(.white)
-                Text("绿城品牌 · 近30年深耕")
+                Text("绿城桂语系 · 近30年深耕")
                     .font(.brandSlogan)
                     .foregroundColor(.white.opacity(0.7))
             }
@@ -269,7 +269,7 @@ struct KioskView: View {
                 Text("诚邀品鉴")
                     .font(.brandTitle)
                     .foregroundColor(.white)
-                Text("南山风景区·如意路88号")
+                Text("海南五指山 · 如意山居")
                     .font(.brandSlogan)
                     .foregroundColor(.white.opacity(0.7))
             }

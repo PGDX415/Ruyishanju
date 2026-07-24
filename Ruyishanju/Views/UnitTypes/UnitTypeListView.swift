@@ -187,12 +187,14 @@ struct UnitTypeCard: View {
                     .frame(height: 180)
                     .clipped()
             }
+            .frame(height: 180)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .overlay(alignment: .topTrailing) {
                 // 销售状态标签
                 statusBadge
                     .padding(8)
             }
+            .contentShape(Rectangle())
 
             // 信息区
             VStack(spacing: 10) {
@@ -255,14 +257,17 @@ struct UnitTypeCard: View {
                 .fill(Color.white)
                 .shadow(color: .black.opacity(0.05), radius: 6, y: 3)
         )
+        .contentShape(RoundedRectangle(cornerRadius: 14))
     }
 
     // MARK: - 户型图获取
 
-    /// 根据单元索引映射实际户型图
+    /// 根据 unitType.floorPlanImage 字段加载实际户型图，空值时 fallback 到 hash 映射
     private var floorplanImage: Image {
+        if !unitType.floorPlanImage.isEmpty {
+            return MediaHelper.image(named: unitType.floorPlanImage)
+        }
         let floorplans = MediaHelper.Floorplan.allCases
-        // 用 unitType id 的 hash 映射到实际户型图
         let index = abs(unitType.id.hashValue) % floorplans.count
         return floorplans[index].image
     }

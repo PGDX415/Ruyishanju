@@ -50,14 +50,16 @@ struct OverviewView: View {
     }
 
     let buildings: [Building] = [
-        Building(id: 1, name: "1栋", unitRange: "98-142㎡", status: "在售",
+        Building(id: 1, name: "1栋", unitRange: "100-120㎡", status: "在售",
                  hotspot: (0.08, 0.20, 0.18, 0.55)),
-        Building(id: 2, name: "2栋", unitRange: "168-192㎡", status: "在售",
-                 hotspot: (0.32, 0.15, 0.18, 0.60)),
-        Building(id: 3, name: "3栋", unitRange: "228㎡大宅", status: "在售",
-                 hotspot: (0.55, 0.22, 0.20, 0.50)),
-        Building(id: 5, name: "5栋", unitRange: "126-168㎡", status: "待售",
-                 hotspot: (0.78, 0.18, 0.16, 0.55)),
+        Building(id: 2, name: "2栋", unitRange: "100-120㎡", status: "在售",
+                 hotspot: (0.28, 0.18, 0.18, 0.57)),
+        Building(id: 3, name: "3栋", unitRange: "100-120㎡", status: "在售",
+                 hotspot: (0.48, 0.15, 0.18, 0.60)),
+        Building(id: 5, name: "5栋", unitRange: "100-120㎡", status: "在售",
+                 hotspot: (0.68, 0.20, 0.18, 0.55)),
+        Building(id: 6, name: "6栋", unitRange: "100-120㎡", status: "在售",
+                 hotspot: (0.82, 0.17, 0.16, 0.58)),
     ]
 
     private var sandboxArea: some View {
@@ -151,7 +153,7 @@ struct OverviewView: View {
 
             PhaseInfoItem(
                 title: "整体进度",
-                value: "主体封顶",
+                value: "一期封顶",
                 icon: "checkmark.shield.fill"
             )
         }
@@ -170,7 +172,7 @@ struct OverviewView: View {
                     .foregroundColor(AppTheme.textPrimary)
             }
 
-            Text("绿城如意山居，择址城市稀缺山林之境，传承东方山居美学。以自然为笔、文化为墨，打造低密度高品质住宅社区。一期作品以新中式建筑语言，融合现代居住需求，敬献懂生活的你。")
+            Text("绿城如意山居，位于海南五指山，是绿城中国倾力打造的山居康养理想作品。项目占地约300亩，总建筑面积约24.6万㎡，一期打造6幢14层山景高层，以桂语系的极致简约语言，融合当代建筑的国际审美格调，将建筑妥帖安放在山色之间，开启理想山居生活的全新篇章。")
                 .font(.system(size: 15))
                 .foregroundColor(AppTheme.textSecondary)
                 .lineSpacing(6)
@@ -178,10 +180,11 @@ struct OverviewView: View {
             Divider().background(AppTheme.divider)
 
             VStack(alignment: .leading, spacing: 10) {
-                overviewRow(icon: "ruler", title: "容积率", value: "1.2")
-                overviewRow(icon: "tree.fill", title: "绿化率", value: "42%")
-                overviewRow(icon: "house.fill", title: "总户数", value: "386户")
-                overviewRow(icon: "car.fill", title: "车位比", value: "1:1.5")
+                overviewRow(icon: "ruler", title: "容积率", value: "住宅1.0/文旅0.75")
+                overviewRow(icon: "tree.fill", title: "绿地率", value: "40%")
+                overviewRow(icon: "mountain.2.fill", title: "森林覆盖率", value: "86.44%")
+                overviewRow(icon: "car.fill", title: "停车位", value: "440（全地下）")
+                overviewRow(icon: "leaf.fill", title: "负氧离子", value: "最高50000个/cm³")
             }
         }
         .padding(20)

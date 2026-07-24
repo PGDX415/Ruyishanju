@@ -58,11 +58,11 @@ struct ContactView: View {
             }
 
             HStack(spacing: 14) {
-                Link(destination: URL(string: "tel://4008888888")!) {
+                Link(destination: URL(string: "tel://4001234567")!) {
                     ContactMethodCard(
                         icon: "phone.fill",
                         title: "电话咨询",
-                        value: "400-888-8888",
+                        value: "400-123-4567",
                         color: AppTheme.primary
                     )
                 }
@@ -184,7 +184,7 @@ struct ContactView: View {
             }
 
             VStack(alignment: .leading, spacing: 10) {
-                Label("南山风景区·如意路88号", systemImage: "mappin.and.ellipse")
+                Label("海南省五指山市·如意山居营销中心", systemImage: "mappin.and.ellipse")
                     .font(.system(size: 14))
                     .foregroundColor(AppTheme.textSecondary)
 
@@ -192,7 +192,7 @@ struct ContactView: View {
                     .font(.system(size: 14))
                     .foregroundColor(AppTheme.textSecondary)
 
-                Label("地铁3号线南山站B出口步行12分钟", systemImage: "tram.fill")
+                Label("海南环岛高速五指山出口约15分钟", systemImage: "car.fill")
                     .font(.system(size: 14))
                     .foregroundColor(AppTheme.textSecondary)
             }

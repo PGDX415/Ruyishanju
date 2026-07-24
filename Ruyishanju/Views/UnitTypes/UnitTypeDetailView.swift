@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UnitTypeDetailView: View {
     let unitType: UnitType
+    @State private var showFloorPlanZoom = false
 
     var body: some View {
         ScrollView {
@@ -24,20 +25,46 @@ struct UnitTypeDetailView: View {
         .background(AppTheme.background)
         .navigationTitle(unitType.name)
         .navigationBarTitleDisplayMode(.inline)
+        .fullScreenCover(isPresented: $showFloorPlanZoom) {
+            FloorPlanZoomView(image: floorplanImage, title: unitType.name)
+        }
     }
 
     // MARK: - 户型图
 
     private var floorPlanSection: some View {
-        floorplanImage
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(maxWidth: .infinity)
-            .background(Color.white)
+        Button {
+            showFloorPlanZoom = true
+        } label: {
+            ZStack(alignment: .bottomTrailing) {
+                floorplanImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                // 放大提示
+                HStack(spacing: 4) {
+                    Image(systemName: "plus.magnifyingglass")
+                        .font(.system(size: 11))
+                    Text("点击放大查看细部")
+                        .font(.system(size: 11))
+                }
+                .foregroundColor(.white.opacity(0.9))
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(Capsule().fill(Color.black.opacity(0.45)))
+                .padding(12)
+            }
+        }
+        .buttonStyle(.plain)
+        .background(Color.white)
     }
 
-    /// 根据单元索引映射实际户型图
+    /// 根据 unitType.floorPlanImage 字段加载实际户型图，空值时 fallback 到 hash 映射
     private var floorplanImage: Image {
+        if !unitType.floorPlanImage.isEmpty {
+            return MediaHelper.image(named: unitType.floorPlanImage)
+        }
         let floorplans = MediaHelper.Floorplan.allCases
         let index = abs(unitType.id.hashValue) % floorplans.count
         return floorplans[index].image
@@ -295,6 +322,127 @@ struct FlowTagLayout: View {
         let lineHeight: CGFloat = 30 + spacing
         let estimatedLines = max(1, (tags.count + 2) / 3)
         return lineHeight * CGFloat(estimatedLines)
+    }
+}
+
+// MARK: - 户型图全屏缩放
+
+struct FloorPlanZoomView: View {
+    let image: Image
+    let title: String
+
+    @Environment(\.dismiss) private var dismiss
+    @State private var scale: CGFloat = 1.0
+    @State private var lastScale: CGFloat = 1.0
+    @State private var offset: CGSize = .zero
+    @State private var lastOffset: CGSize = .zero
+
+    var body: some View {
+        ZStack {
+            Color.black.ignoresSafeArea()
+
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(scale)
+                .offset(offset)
+                .gesture(
+                    MagnificationGesture()
+                        .onChanged { value in
+                            let newScale = lastScale * value
+                            scale = min(max(newScale, 1), 5)
+                        }
+                        .onEnded { _ in
+                            lastScale = scale
+                            if scale <= 1 {
+                                withAnimation(.spring(response: 0.3)) {
+                                    offset = .zero
+                                    lastOffset = .zero
+                                }
+                            }
+                        }
+                )
+                .simultaneousGesture(
+                    DragGesture()
+                        .onChanged { value in
+                            guard scale > 1 else { return }
+                            offset = CGSize(
+                                width: lastOffset.width + value.translation.width,
+                                height: lastOffset.height + value.translation.height
+                            )
+                        }
+                        .onEnded { _ in
+                            lastOffset = offset
+                        }
+                )
+                .onTapGesture(count: 2) {
+                    withAnimation(.spring(response: 0.3)) {
+                        if scale > 1 {
+                            scale = 1
+                            lastScale = 1
+                            offset = .zero
+                            lastOffset = .zero
+                        } else {
+                            scale = 2.5
+                            lastScale = 2.5
+                        }
+                    }
+                }
+
+            // 顶部工具栏
+            VStack {
+                HStack {
+                    // 返回按钮
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 26))
+                            .foregroundColor(.white.opacity(0.7))
+                    }
+
+                    Spacer()
+
+                    // 标题
+                    Text(title)
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundColor(.white.opacity(0.8))
+
+                    Spacer()
+
+                    // 重置缩放
+                    Button {
+                        withAnimation(.spring(response: 0.3)) {
+                            scale = 1
+                            lastScale = 1
+                            offset = .zero
+                            lastOffset = .zero
+                        }
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.system(size: 20))
+                            .foregroundColor(scale > 1 ? .white.opacity(0.7) : .white.opacity(0.25))
+                    }
+                    .disabled(scale <= 1)
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 16)
+
+                Spacer()
+
+                // 底部提示
+                if scale <= 1 {
+                    HStack(spacing: 6) {
+                        Image(systemName: "hand.draw.fill")
+                            .font(.system(size: 11))
+                        Text("双指缩放 · 双击放大 · 拖动查看")
+                            .font(.system(size: 12))
+                    }
+                    .foregroundColor(.white.opacity(0.45))
+                    .padding(.bottom, 40)
+                }
+            }
+        }
     }
 }
 

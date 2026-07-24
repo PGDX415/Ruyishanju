@@ -12,28 +12,40 @@ struct LocationView: View {
     @State private var selectedCategory: AmenityCategory?
     @State private var camera: MapCameraPosition = .region(
         MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 30.258, longitude: 120.15),
-            span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            center: CLLocationCoordinate2D(latitude: 18.775, longitude: 109.517),
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         )
     )
     @State private var selectedAmenity: Amenity?
 
-    /// 项目位置
-    static let projectCoordinate = CLLocationCoordinate2D(latitude: 30.258, longitude: 120.15)
+    /// 项目位置 — 海南五指山
+    static let projectCoordinate = CLLocationCoordinate2D(latitude: 18.775, longitude: 109.517)
 
     let amenities: [Amenity] = [
-        Amenity(id: "1", name: "南山实验小学", category: .education, distance: "步行8分钟", description: "市重点小学",
-                coordinate: Coordinate(latitude: 30.261, longitude: 120.148)),
-        Amenity(id: "2", name: "南山第一中学", category: .education, distance: "车程5分钟", description: "省级示范中学",
-                coordinate: Coordinate(latitude: 30.254, longitude: 120.158)),
-        Amenity(id: "3", name: "万象城购物中心", category: .shopping, distance: "车程10分钟", description: "大型商业综合体",
-                coordinate: Coordinate(latitude: 30.250, longitude: 120.142)),
-        Amenity(id: "4", name: "市第三人民医院", category: .medical, distance: "车程8分钟", description: "三甲医院",
-                coordinate: Coordinate(latitude: 30.263, longitude: 120.155)),
-        Amenity(id: "5", name: "地铁3号线南山站", category: .transport, distance: "步行12分钟", description: nil,
-                coordinate: Coordinate(latitude: 30.255, longitude: 120.145)),
-        Amenity(id: "6", name: "南山森林公园", category: .leisure, distance: "步行5分钟", description: "城市绿肺",
-                coordinate: Coordinate(latitude: 30.262, longitude: 120.155)),
+        Amenity(id: "1", name: "五指山热带雨林风景区", category: .leisure, distance: "约3公里",
+                description: "国家AAAA级旅游景区，原始热带雨林",
+                coordinate: Coordinate(latitude: 18.790, longitude: 109.530)),
+        Amenity(id: "2", name: "五指山市第一小学", category: .education, distance: "约2公里",
+                description: "五指山市重点小学",
+                coordinate: Coordinate(latitude: 18.772, longitude: 109.510)),
+        Amenity(id: "3", name: "五指山中学", category: .education, distance: "约2.5公里",
+                description: "五指山市完全中学",
+                coordinate: Coordinate(latitude: 18.770, longitude: 109.505)),
+        Amenity(id: "4", name: "三月三广场", category: .shopping, distance: "约1.5公里",
+                description: "五指山市商业中心，购物休闲",
+                coordinate: Coordinate(latitude: 18.773, longitude: 109.520)),
+        Amenity(id: "5", name: "海南省第二人民医院", category: .medical, distance: "约3公里",
+                description: "二级甲等综合医院",
+                coordinate: Coordinate(latitude: 18.780, longitude: 109.510)),
+        Amenity(id: "6", name: "五指山汽车站", category: .transport, distance: "约2公里",
+                description: nil,
+                coordinate: Coordinate(latitude: 18.772, longitude: 109.515)),
+        Amenity(id: "7", name: "海南热带雨林国家公园", category: .leisure, distance: "约5公里",
+                description: "国家级自然保护区，天然氧吧",
+                coordinate: Coordinate(latitude: 18.800, longitude: 109.540)),
+        Amenity(id: "8", name: "五指山黎苗风情街", category: .dining, distance: "约2公里",
+                description: "黎苗特色美食与民族文化体验",
+                coordinate: Coordinate(latitude: 18.771, longitude: 109.522)),
     ]
 
     var filteredAmenities: [Amenity] {
@@ -92,7 +104,7 @@ struct LocationView: View {
                 Image(systemName: "mappin.and.ellipse")
                     .font(.system(size: 13))
                     .foregroundColor(AppTheme.primary)
-                Text("南山风景区·如意路88号")
+                Text("海南省五指山市·如意山居")
                     .font(.system(size: 13))
                     .foregroundColor(AppTheme.textSecondary)
                 Spacer()
