@@ -1,0 +1,128 @@
+[
+    {
+        "id": "type-a-120",
+        "name": "如意·雅居",
+        "roomCount": 3,
+        "hallCount": 2,
+        "bathroomCount": 2,
+        "area": 126.5,
+        "innerArea": 102.3,
+        "orientation": "南北通透",
+        "floorLevel": "3-8层",
+        "buildingNumber": "1栋",
+        "featureTags": ["双阳台", "主卧套房", "明厨明卫"],
+        "floorPlanImage": "",
+        "priceRange": {
+            "minTotalPrice": 185,
+            "maxTotalPrice": 210,
+            "unitPrice": 15800
+        },
+        "status": "在售",
+        "description": "三室两厅两卫，南北通透格局，动静分区合理，约7.2米宽景阳台，主卧套房带独立衣帽间。"
+    },
+    {
+        "id": "type-a-140",
+        "name": "如意·山语",
+        "roomCount": 3,
+        "hallCount": 2,
+        "bathroomCount": 2,
+        "area": 142.8,
+        "innerArea": 118.5,
+        "orientation": "东南",
+        "floorLevel": "5-12层",
+        "buildingNumber": "1栋",
+        "featureTags": ["宽景阳台", "U型厨房", "独立玄关"],
+        "floorPlanImage": "",
+        "priceRange": {
+            "minTotalPrice": 215,
+            "maxTotalPrice": 245,
+            "unitPrice": 16800
+        },
+        "status": "在售",
+        "description": "三室两厅两卫，东南朝向采光优异，约8.4米跑道式阳台，U型厨房操作流畅。"
+    },
+    {
+        "id": "type-b-160",
+        "name": "如意·云庭",
+        "roomCount": 4,
+        "hallCount": 2,
+        "bathroomCount": 3,
+        "area": 168.0,
+        "innerArea": 142.5,
+        "orientation": "南北通透",
+        "floorLevel": "1-5层",
+        "buildingNumber": "2栋",
+        "featureTags": ["入户花园", "双主卧", "中西双厨"],
+        "floorPlanImage": "",
+        "priceRange": {
+            "minTotalPrice": 280,
+            "maxTotalPrice": 320,
+            "unitPrice": 18500
+        },
+        "status": "在售",
+        "description": "四室两厅三卫，奢阔入户花园，双主卧套房设计，中西双厨满足多元烹饪需求。"
+    },
+    {
+        "id": "type-b-190",
+        "name": "如意·山阙",
+        "roomCount": 4,
+        "hallCount": 2,
+        "bathroomCount": 3,
+        "area": 192.5,
+        "innerArea": 165.2,
+        "orientation": "南北通透",
+        "floorLevel": "6-12层",
+        "buildingNumber": "2栋",
+        "featureTags": ["270°观景", "三阳台", "保姆间"],
+        "floorPlanImage": "",
+        "priceRange": {
+            "minTotalPrice": 340,
+            "maxTotalPrice": 385,
+            "unitPrice": 19800
+        },
+        "status": "在售",
+        "description": "四室两厅三卫，270°环幕观景视野，三阳台设计尽揽山色，独立保姆间。"
+    },
+    {
+        "id": "type-c-220",
+        "name": "如意·山居大宅",
+        "roomCount": 5,
+        "hallCount": 3,
+        "bathroomCount": 4,
+        "area": 228.0,
+        "innerArea": 198.0,
+        "orientation": "南北通透",
+        "floorLevel": "1-3层",
+        "buildingNumber": "3栋",
+        "featureTags": ["独门独院", "下沉庭院", "地下室", "影音室", "私人车库"],
+        "floorPlanImage": "",
+        "priceRange": {
+            "minTotalPrice": 520,
+            "maxTotalPrice": 600,
+            "unitPrice": 25200
+        },
+        "status": "在售",
+        "description": "五室三厅四卫，独门独院低密大宅，下沉式庭院引光入室，全明地下室可做影音室/酒窖，尊享私人车库。"
+    },
+    {
+        "id": "type-a-120-east",
+        "name": "如意·揽翠",
+        "roomCount": 2,
+        "hallCount": 2,
+        "bathroomCount": 1,
+        "area": 98.5,
+        "innerArea": 80.2,
+        "orientation": "东南",
+        "floorLevel": "2-9层",
+        "buildingNumber": "1栋",
+        "featureTags": ["精致户型", "收纳优化", "全明设计"],
+        "floorPlanImage": "",
+        "priceRange": {
+            "minTotalPrice": 145,
+            "maxTotalPrice": 165,
+            "unitPrice": 16200
+        },
+        "status": "售罄",
+        "description": "两室两厅一卫，精致实用小户型，东南采光，全明设计无暗角，科学收纳系统。"
+    }
+]

@@ -2,60 +2,59 @@
 //  ContentView.swift
 //  Ruyishanju
 //
-//  Created by Paul Dexin Gong on 2026/7/24.
+//  主视图 — 纯 SwiftUI TabView
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Binding var showKiosk: Bool
+    @State private var selectedTab: AppTab = .home
+
+    enum AppTab: String, CaseIterable {
+        case home = "首页"
+        case unitTypes = "户型"
+        case gallery = "图库"
+        case overview = "总览"
+        case more = "更多"
+
+        var icon: String {
+            switch self {
+            case .home: return "house.fill"
+            case .unitTypes: return "square.grid.2x2.fill"
+            case .gallery: return "photo.on.rectangle.angled"
+            case .overview: return "map.fill"
+            case .more: return "ellipsis.circle.fill"
+            }
+        }
+    }
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        TabView(selection: $selectedTab) {
+            Tab(AppTab.home.rawValue, systemImage: AppTab.home.icon, value: AppTab.home) {
+                HomeView(showKiosk: $showKiosk, switchTab: { selectedTab = $0 })
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
+            Tab(AppTab.unitTypes.rawValue, systemImage: AppTab.unitTypes.icon, value: AppTab.unitTypes) {
+                UnitTypeListView()
             }
-        } detail: {
-            Text("Select an item")
+            Tab(AppTab.gallery.rawValue, systemImage: AppTab.gallery.icon, value: AppTab.gallery) {
+                GalleryView()
+            }
+            Tab(AppTab.overview.rawValue, systemImage: AppTab.overview.icon, value: AppTab.overview) {
+                OverviewView(switchTab: { selectedTab = $0 })
+            }
+            Tab(AppTab.more.rawValue, systemImage: AppTab.more.icon, value: AppTab.more) {
+                MoreView(showKiosk: $showKiosk)
+            }
         }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+        .tint(AppTheme.primary)
+        .fullScreenCover(isPresented: $showKiosk) {
+            KioskView()
         }
     }
 }
 
 #Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+    ContentView(showKiosk: .constant(false))
 }
+

@@ -2,31 +2,36 @@
 //  RuyishanjuApp.swift
 //  Ruyishanju
 //
-//  Created by Paul Dexin Gong on 2026/7/24.
+//  App 入口 — 启动页 → 主界面
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct RuyishanjuApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    @State private var showKiosk = false
+    @State private var showSplash = true
+    @State private var dataStore = AppDataStore()
 
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    init() {
+        // 横向 ScrollView 中的按钮需要立即响应 tap，不让 UIScrollView 延迟判断
+        UIScrollView.appearance().delaysContentTouches = false
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                ContentView(showKiosk: $showKiosk)
+                    .environment(\.dataStore, dataStore)
+
+                if showSplash {
+                    SplashView {
+                        showSplash = false
+                    }
+                    .transition(.opacity)
+                }
+            }
+            .animation(.easeInOut(duration: 0.6), value: showSplash)
         }
-        .modelContainer(sharedModelContainer)
     }
 }

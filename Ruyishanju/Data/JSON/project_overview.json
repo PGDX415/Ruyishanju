@@ -1,0 +1,22 @@
+{
+    "id": "ruyi-shanju",
+    "name": "绿城如意山居",
+    "slogan": "人生如意 自在山",
+    "subtitle": "人生如意 自在山",
+    "description": "绿城如意山居，择址城市稀缺山林之境，传承东方山居美学。以自然为笔、文化为墨，打造低密度高品质住宅社区。一期作品以新中式建筑语言，融合现代居住需求，敬献懂生活的你。",
+    "highlights": [
+        "低密山居住区，容积率仅1.2",
+        "新中式建筑风格，东方美学典范",
+        "背山面水，天然氧吧",
+        "绿城品牌，匠心品质保障"
+    ],
+    "coverImage": "exterior_hero",
+    "aerialImage": "exterior_03",
+    "brochureURL": null,
+    "phaseInfo": {
+        "currentPhase": "一期",
+        "totalPhases": 3,
+        "status": "在售",
+        "deliveryDate": "2026年12月"
+    }
+}
