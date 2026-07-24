@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoreView: View {
     @Binding var showKiosk: Bool
+    @State private var showShareProject = false
 
     var body: some View {
         NavigationStack {
@@ -127,6 +128,17 @@ struct MoreView: View {
                             color: Color(red: 0.50, green: 0.35, blue: 0.20)
                         )
                     }
+
+                    NavigationLink {
+                        ConstructionProgressView()
+                    } label: {
+                        MoreRow(
+                            icon: "clock.arrow.2.circlepath",
+                            title: "施工进度",
+                            subtitle: "一期封顶 · 2026.12交付",
+                            color: Color(red: 0.25, green: 0.50, blue: 0.65)
+                        )
+                    }
                 }
 
                 // 其他
@@ -140,6 +152,18 @@ struct MoreView: View {
                             title: "展厅演示模式",
                             subtitle: "iPad 展厅待机欢迎页",
                             color: Color(red: 0.5, green: 0.3, blue: 0.7)
+                        )
+                    }
+
+                    // 分享项目
+                    Button {
+                        showShareProject = true
+                    } label: {
+                        MoreRow(
+                            icon: "square.and.arrow.up.fill",
+                            title: "分享项目",
+                            subtitle: "推荐给朋友 · 微信/朋友圈",
+                            color: Color(red: 0.18, green: 0.70, blue: 0.30)
                         )
                     }
 
@@ -185,6 +209,10 @@ struct MoreView: View {
             .navigationTitle("更多")
             .scrollContentBackground(.hidden)
             .background(AppTheme.background)
+            .sheet(isPresented: $showShareProject) {
+                ShareSheet(items: [ProjectShareText.shareText])
+                    .presentationDetents([.medium])
+            }
         }
     }
 }

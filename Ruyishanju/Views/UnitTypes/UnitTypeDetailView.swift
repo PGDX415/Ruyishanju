@@ -10,6 +10,7 @@ import SwiftUI
 struct UnitTypeDetailView: View {
     let unitType: UnitType
     @State private var showFloorPlanZoom = false
+    @State private var showShareSheet = false
 
     var body: some View {
         ScrollView {
@@ -25,8 +26,23 @@ struct UnitTypeDetailView: View {
         .background(AppTheme.background)
         .navigationTitle(unitType.name)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showShareSheet = true
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundColor(AppTheme.primary)
+                }
+            }
+        }
         .fullScreenCover(isPresented: $showFloorPlanZoom) {
             FloorPlanZoomView(image: floorplanImage, title: unitType.name)
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [UnitTypeShareText.generate(for: unitType)])
+                .presentationDetents([.medium])
         }
     }
 
