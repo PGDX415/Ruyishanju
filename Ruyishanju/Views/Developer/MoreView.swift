@@ -86,6 +86,17 @@ struct MoreView: View {
                     }
 
                     NavigationLink {
+                        TourView()
+                    } label: {
+                        MoreRow(
+                            icon: "cube.transparent.fill",
+                            title: "3D 户型漫游",
+                            subtitle: "3D旋转 · 房间导览",
+                            color: Color(red: 0.35, green: 0.30, blue: 0.60)
+                        )
+                    }
+
+                    NavigationLink {
                         FavoritesView()
                     } label: {
                         MoreRow(
