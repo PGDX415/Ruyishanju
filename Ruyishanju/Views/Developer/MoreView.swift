@@ -52,6 +52,17 @@ struct MoreView: View {
                 // 购房指南
                 Section {
                     NavigationLink {
+                        MortgageView()
+                    } label: {
+                        MoreRow(
+                            icon: "dollarsign.circle.fill",
+                            title: "房贷计算器",
+                            subtitle: "等额本息 · 月供计算",
+                            color: Color(red: 0.15, green: 0.60, blue: 0.45)
+                        )
+                    }
+
+                    NavigationLink {
                         PolicyView()
                     } label: {
                         MoreRow(
