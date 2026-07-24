@@ -11,6 +11,7 @@ struct UnitTypeDetailView: View {
     let unitType: UnitType
     @State private var showFloorPlanZoom = false
     @State private var showShareSheet = false
+    @State private var favoritesManager = FavoritesManager()
 
     var body: some View {
         ScrollView {
@@ -28,12 +29,22 @@ struct UnitTypeDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    showShareSheet = true
-                } label: {
-                    Image(systemName: "square.and.arrow.up")
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(AppTheme.primary)
+                HStack(spacing: 16) {
+                    Button {
+                        favoritesManager.toggle(unitType.id)
+                    } label: {
+                        Image(systemName: favoritesManager.isFavorited(unitType.id) ? "heart.fill" : "heart")
+                            .font(.system(size: 17))
+                            .foregroundColor(favoritesManager.isFavorited(unitType.id) ? .red : AppTheme.textSecondary)
+                    }
+
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(AppTheme.primary)
+                    }
                 }
             }
         }

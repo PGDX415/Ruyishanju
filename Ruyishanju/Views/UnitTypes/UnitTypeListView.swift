@@ -176,6 +176,7 @@ struct FilterChip: View {
 
 struct UnitTypeCard: View {
     let unitType: UnitType
+    @State private var favoritesManager = FavoritesManager()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -193,6 +194,19 @@ struct UnitTypeCard: View {
                 // 销售状态标签
                 statusBadge
                     .padding(8)
+            }
+            .overlay(alignment: .topLeading) {
+                // 收藏按钮
+                Button {
+                    favoritesManager.toggle(unitType.id)
+                } label: {
+                    Image(systemName: favoritesManager.isFavorited(unitType.id) ? "heart.fill" : "heart")
+                        .font(.system(size: 16))
+                        .foregroundColor(favoritesManager.isFavorited(unitType.id) ? .red : .white.opacity(0.8))
+                        .frame(width: 32, height: 32)
+                        .background(Circle().fill(.black.opacity(0.25)))
+                }
+                .padding(8)
             }
             .contentShape(Rectangle())
 

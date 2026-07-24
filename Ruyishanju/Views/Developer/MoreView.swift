@@ -75,6 +75,28 @@ struct MoreView: View {
                     }
 
                     NavigationLink {
+                        ComparisonView()
+                    } label: {
+                        MoreRow(
+                            icon: "rectangle.split.2x1.fill",
+                            title: "户型对比",
+                            subtitle: "并排比较 · 一目了然",
+                            color: Color(red: 0.45, green: 0.35, blue: 0.70)
+                        )
+                    }
+
+                    NavigationLink {
+                        FavoritesView()
+                    } label: {
+                        MoreRow(
+                            icon: "heart.fill",
+                            title: "我的收藏",
+                            subtitle: "心仪户型快速找回",
+                            color: Color(red: 0.85, green: 0.25, blue: 0.30)
+                        )
+                    }
+
+                    NavigationLink {
                         PolicyView()
                     } label: {
                         MoreRow(
