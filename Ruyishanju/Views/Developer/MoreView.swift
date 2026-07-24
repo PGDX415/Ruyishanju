@@ -49,7 +49,65 @@ struct MoreView: View {
                     )
                 }
 
-                // 分隔
+                // 购房指南
+                Section {
+                    NavigationLink {
+                        PolicyView()
+                    } label: {
+                        MoreRow(
+                            icon: "doc.text.fill",
+                            title: "购房政策",
+                            subtitle: "海南自贸港 · 购房利好",
+                            color: Color(red: 0.15, green: 0.55, blue: 0.55)
+                        )
+                    }
+
+                    NavigationLink {
+                        WuzhishanView()
+                    } label: {
+                        MoreRow(
+                            icon: "mountain.2.fill",
+                            title: "五指山风物志",
+                            subtitle: "景点 · 美食 · 黎苗文化",
+                            color: Color(red: 0.25, green: 0.45, blue: 0.25)
+                        )
+                    }
+
+                    NavigationLink {
+                        WellnessView()
+                    } label: {
+                        MoreRow(
+                            icon: "heart.fill",
+                            title: "康养山居",
+                            subtitle: "天然氧吧 · 天赋康养资源",
+                            color: Color(red: 0.70, green: 0.25, blue: 0.35)
+                        )
+                    }
+
+                    NavigationLink {
+                        TransportView()
+                    } label: {
+                        MoreRow(
+                            icon: "car.fill",
+                            title: "交通指南",
+                            subtitle: "航空 · 高铁 · 自驾路线",
+                            color: Color(red: 0.25, green: 0.40, blue: 0.65)
+                        )
+                    }
+
+                    NavigationLink {
+                        BrochureView()
+                    } label: {
+                        MoreRow(
+                            icon: "book.pages.fill",
+                            title: "电子楼书",
+                            subtitle: "在线浏览 · 下载 PDF",
+                            color: Color(red: 0.50, green: 0.35, blue: 0.20)
+                        )
+                    }
+                }
+
+                // 其他
                 Section {
                     // 展厅演示模式
                     Button {
@@ -67,18 +125,24 @@ struct MoreView: View {
                     NavigationLink {
                         PrivacyView()
                     } label: {
-                        HStack {
-                            MoreRow(
-                                icon: "hand.raised.fill",
-                                title: "隐私政策",
-                                subtitle: "用户信息收集与使用说明",
-                                color: Color(red: 0.4, green: 0.5, blue: 0.6)
-                            )
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 13))
-                                .foregroundColor(AppTheme.textSecondary.opacity(0.4))
-                        }
+                        MoreRow(
+                            icon: "hand.raised.fill",
+                            title: "隐私政策",
+                            subtitle: "用户信息收集与使用说明",
+                            color: Color(red: 0.4, green: 0.5, blue: 0.6)
+                        )
+                    }
+
+                    // 免责声明
+                    NavigationLink {
+                        DisclaimerView()
+                    } label: {
+                        MoreRow(
+                            icon: "exclamationmark.shield.fill",
+                            title: "免责声明",
+                            subtitle: "信息仅供参考 · 以合同为准",
+                            color: Color(red: 0.55, green: 0.45, blue: 0.35)
+                        )
                     }
 
                     // 关于
