@@ -63,6 +63,17 @@ struct MoreView: View {
                     }
 
                     NavigationLink {
+                        SunlightView()
+                    } label: {
+                        MoreRow(
+                            icon: "sun.max.fill",
+                            title: "日照模拟",
+                            subtitle: "朝向分析 · 采光评估",
+                            color: Color(red: 0.90, green: 0.55, blue: 0.15)
+                        )
+                    }
+
+                    NavigationLink {
                         PolicyView()
                     } label: {
                         MoreRow(
